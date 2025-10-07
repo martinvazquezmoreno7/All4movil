@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 48" role="img" aria-labelledby="title desc">
+  <title id="title">All4movil logotipo</title>
+  <desc id="desc">Logotipo de All4movil con colores corporativos azul profundo y acento turquesa</desc>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#142c73" />
+      <stop offset="60%" stop-color="#0f2260" />
+      <stop offset="100%" stop-color="#05c4d6" />
+    </linearGradient>
+  </defs>
+  <rect width="180" height="48" rx="12" fill="white" />
+  <g transform="translate(14 10)">
+    <path d="M18 0c9.941 0 18 8.059 18 18s-8.059 18-18 18S0 27.941 0 18 8.059 0 18 0z" fill="url(#grad)" />
+    <path d="M17.8 9.5l-7.1 7.2c-.8.8-.23 2.3.9 2.3h4.5v6.4c0 1.1 1.5 1.7 2.3.9l7.2-7.1c.9-.9.26-2.4-.98-2.4h-4.52V10.4c0-1.24-1.53-1.86-2.3-.9z" fill="#f5f8ff" />
+  </g>
+  <g fill="#142c73" font-family="'Manrope', 'Segoe UI', sans-serif" font-weight="700" font-size="18" letter-spacing="0.02em">
+    <text x="60" y="20">All4</text>
+    <text x="60" y="38" fill="#05c4d6">movil</text>
+  </g>
+</svg>

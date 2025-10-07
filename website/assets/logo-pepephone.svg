@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 32" role="img" aria-label="Logo Pepephone">
+  <rect width="96" height="32" rx="12" fill="#1b1b1b" />
+  <text x="14" y="22" font-family="'Manrope','Segoe UI',sans-serif" font-weight="800" font-size="16" fill="#ff2d20">Pepe</text>
+  <text x="55" y="22" font-family="'Manrope','Segoe UI',sans-serif" font-weight="600" font-size="16" fill="#ffffff">phone</text>
+</svg>
