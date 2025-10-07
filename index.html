@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All4movil | Comparador de tarifas</title>
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+          sans-serif;
+        background: #0f172a;
+        color: #e2e8f0;
+      }
+
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #0b1120 0%, #111c44 100%);
+        min-height: 100vh;
+      }
+
+      main {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem 6rem;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 700;
+        font-size: 1.25rem;
+      }
+
+      .logo span {
+        display: grid;
+        place-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+        color: #0b1120;
+        font-weight: 700;
+      }
+
+      .hero {
+        margin-top: 3rem;
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 4vw + 1rem, 3.5rem);
+        line-height: 1.1;
+        max-width: 20ch;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        max-width: 50ch;
+        color: #cbd5f5;
+      }
+
+      .card {
+        background: rgba(15, 23, 42, 0.75);
+        border: 1px solid rgba(99, 102, 241, 0.2);
+        border-radius: 18px;
+        padding: 2rem;
+        backdrop-filter: blur(18px);
+        box-shadow: 0 32px 60px rgba(15, 23, 42, 0.35);
+      }
+
+      form {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .filters {
+        display: grid;
+        gap: 1.25rem;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      label {
+        display: grid;
+        gap: 0.6rem;
+        font-size: 0.9rem;
+        color: #cbd5f5;
+      }
+
+      select,
+      input[type='range'],
+      input[type='number'] {
+        width: 100%;
+        background: rgba(30, 41, 77, 0.85);
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        border-radius: 12px;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        color: #e2e8f0;
+      }
+
+      .range-output {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.85rem;
+        color: #94a3b8;
+      }
+
+      button[type='submit'] {
+        justify-self: start;
+        background: linear-gradient(135deg, #22d3ee 0%, #6366f1 100%);
+        border: none;
+        border-radius: 999px;
+        padding: 0.85rem 2.4rem;
+        font-weight: 600;
+        color: #0b1120;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      button[type='submit']:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 35px rgba(14, 116, 144, 0.35);
+      }
+
+      .results {
+        margin-top: 3rem;
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .result-card {
+        display: grid;
+        gap: 1rem;
+        border-radius: 16px;
+        padding: 1.5rem;
+        background: rgba(15, 23, 42, 0.65);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+      }
+
+      .result-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .result-provider {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+        background: rgba(59, 130, 246, 0.2);
+        color: #93c5fd;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .price {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #f1f5f9;
+      }
+
+      .features {
+        display: grid;
+        gap: 0.75rem;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        color: #cbd5f5;
+      }
+
+      .features strong {
+        color: #f8fafc;
+      }
+
+      .empty-state {
+        text-align: center;
+        padding: 3rem 1.5rem;
+        background: rgba(15, 23, 42, 0.4);
+        border-radius: 16px;
+        border: 1px dashed rgba(148, 163, 184, 0.4);
+        color: #94a3b8;
+      }
+
+      @media (max-width: 600px) {
+        header {
+          align-items: flex-start;
+        }
+
+        button[type='submit'] {
+          width: 100%;
+          justify-self: stretch;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="logo">
+          <span>4M</span>
+          All4movil Comparador
+        </div>
+        <div class="pill">Actualizado Marzo 2024</div>
+      </header>
+
+      <section class="hero">
+        <h1>Encuentra la tarifa perfecta en cuestión de segundos</h1>
+        <p>
+          Compara tarifas móviles, fibra y packs convergentes de los principales
+          operadores en España. Ajusta los filtros según tus necesidades y
+          descubre cuánto puedes ahorrar cada mes.
+        </p>
+      </section>
+
+      <section class="card">
+        <form id="filters">
+          <div class="filters">
+            <label>
+              Tipo de tarifa
+              <select name="type">
+                <option value="">Todas</option>
+                <option value="movil">Solo móvil</option>
+                <option value="fibra">Solo fibra</option>
+                <option value="convergente">Fibra + móvil</option>
+              </select>
+            </label>
+
+            <label>
+              Operador
+              <select name="provider">
+                <option value="">Cualquiera</option>
+                <option value="o2">O2</option>
+                <option value="lowi">Lowi</option>
+                <option value="pepephone">Pepephone</option>
+                <option value="orange">Orange</option>
+                <option value="movistar">Movistar</option>
+              </select>
+            </label>
+
+            <label>
+              Precio máximo (€/mes)
+              <input type="range" min="15" max="90" step="5" name="price" value="60" />
+              <div class="range-output">
+                <span>15€</span>
+                <span id="price-output">60€</span>
+              </div>
+            </label>
+
+            <label>
+              Datos móviles mínimos (GB)
+              <input type="number" name="mobileData" min="0" step="5" value="20" />
+            </label>
+
+            <label>
+              Velocidad mínima fibra (Mbps)
+              <input type="number" name="fiberSpeed" min="0" step="100" value="300" />
+            </label>
+          </div>
+
+          <button type="submit">Ver mejores ofertas</button>
+        </form>
+      </section>
+
+      <section class="results" id="results"></section>
+    </main>
+
+    <template id="result-template">
+      <article class="result-card">
+        <div class="result-header">
+          <div class="result-provider">
+            <span class="pill" data-type></span>
+            <h3 data-name></h3>
+          </div>
+          <div class="price" data-price></div>
+        </div>
+        <div class="features">
+          <div><strong data-mobile-data></strong><br />Datos móviles</div>
+          <div><strong data-fiber-speed></strong><br />Fibra simétrica</div>
+          <div><strong data-benefits></strong><br />Beneficios</div>
+          <div><strong data-commitment></strong><br />Permanencia</div>
+        </div>
+      </article>
+    </template>
+
+    <script>
+      const offers = [
+        {
+          id: 1,
+          name: 'O2 Fibra 500 Mb + 50 GB',
+          provider: 'o2',
+          type: 'convergente',
+          price: 38,
+          mobileData: 50,
+          fiberSpeed: 500,
+          benefits: 'Llamadas ilimitadas, roaming UE',
+          commitment: 'Sin permanencia'
+        },
+        {
+          id: 2,
+          name: 'Lowi 300 Mb + 50 GB',
+          provider: 'lowi',
+          type: 'convergente',
+          price: 34.95,
+          mobileData: 50,
+          fiberSpeed: 300,
+          benefits: 'Acumula GB, sin cuota de línea',
+          commitment: 'Sin permanencia'
+        },
+        {
+          id: 3,
+          name: 'Pepephone Inimitable 39 GB',
+          provider: 'pepephone',
+          type: 'movil',
+          price: 19.9,
+          mobileData: 39,
+          fiberSpeed: 0,
+          benefits: 'Cobertura Movistar + Orange',
+          commitment: 'Sin permanencia'
+        },
+        {
+          id: 4,
+          name: 'Movistar Ilimitado Plus 5G',
+          provider: 'movistar',
+          type: 'movil',
+          price: 44.95,
+          mobileData: 150,
+          fiberSpeed: 0,
+          benefits: '5G+, Netflix, Disney+',
+          commitment: '12 meses'
+        },
+        {
+          id: 5,
+          name: 'Orange Love Cine y Series 1Gb',
+          provider: 'orange',
+          type: 'convergente',
+          price: 70,
+          mobileData: 200,
+          fiberSpeed: 1000,
+          benefits: 'Series + Cine + DAZN LaLiga',
+          commitment: '12 meses'
+        },
+        {
+          id: 6,
+          name: 'Lowi Fibra 600 Mb',
+          provider: 'lowi',
+          type: 'fibra',
+          price: 29.95,
+          mobileData: 0,
+          fiberSpeed: 600,
+          benefits: 'Router Wi-Fi 6, instalación gratis',
+          commitment: 'Sin permanencia'
+        },
+        {
+          id: 7,
+          name: 'O2 Fibra 1 Gb + 75 GB',
+          provider: 'o2',
+          type: 'convergente',
+          price: 50,
+          mobileData: 75,
+          fiberSpeed: 1000,
+          benefits: 'TV O2+, multiSIM incluida',
+          commitment: 'Sin permanencia'
+        }
+      ];
+
+      const filtersForm = document.getElementById('filters');
+      const resultsSection = document.getElementById('results');
+      const priceOutput = document.getElementById('price-output');
+      const template = document.getElementById('result-template');
+
+      function formatPrice(value) {
+        return new Intl.NumberFormat('es-ES', {
+          style: 'currency',
+          currency: 'EUR',
+          minimumFractionDigits: value % 1 === 0 ? 0 : 2
+        }).format(value);
+      }
+
+      function renderOffers(list) {
+        resultsSection.innerHTML = '';
+
+        if (!list.length) {
+          resultsSection.innerHTML = `
+            <div class="empty-state">
+              No hay tarifas que cumplan con los filtros seleccionados.
+              Prueba a ampliar tu presupuesto o reducir los requisitos de datos y velocidad.
+            </div>
+          `;
+          return;
+        }
+
+        list.forEach((offer) => {
+          const card = template.content.cloneNode(true);
+          card.querySelector('[data-type]').textContent =
+            offer.type === 'movil'
+              ? 'Solo móvil'
+              : offer.type === 'fibra'
+              ? 'Solo fibra'
+              : 'Fibra + móvil';
+          card.querySelector('[data-name]').textContent = offer.name;
+          card.querySelector('[data-price]').textContent = formatPrice(offer.price);
+          card.querySelector('[data-mobile-data]').textContent =
+            offer.mobileData ? `${offer.mobileData} GB` : 'N/A';
+          card.querySelector('[data-fiber-speed]').textContent =
+            offer.fiberSpeed ? `${offer.fiberSpeed} Mb` : 'N/A';
+          card.querySelector('[data-benefits]').textContent = offer.benefits;
+          card.querySelector('[data-commitment]').textContent = offer.commitment;
+
+          resultsSection.appendChild(card);
+        });
+      }
+
+      function filterOffers(formData) {
+        const maxPrice = Number(formData.get('price'));
+        const type = formData.get('type');
+        const provider = formData.get('provider');
+        const mobileData = Number(formData.get('mobileData') || 0);
+        const fiberSpeed = Number(formData.get('fiberSpeed') || 0);
+
+        return offers
+          .filter((offer) => (type ? offer.type === type : true))
+          .filter((offer) => (provider ? offer.provider === provider : true))
+          .filter((offer) => offer.price <= maxPrice)
+          .filter((offer) => offer.mobileData >= mobileData)
+          .filter((offer) => offer.fiberSpeed >= fiberSpeed)
+          .sort((a, b) => a.price - b.price);
+      }
+
+      filtersForm.addEventListener('input', (event) => {
+        if (event.target.name === 'price') {
+          priceOutput.textContent = `${event.target.value}€`;
+        }
+      });
+
+      filtersForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const formData = new FormData(filtersForm);
+        const filtered = filterOffers(formData);
+        renderOffers(filtered);
+      });
+
+      // Primera renderización con los valores iniciales del formulario
+      renderOffers(filterOffers(new FormData(filtersForm)));
+    </script>
+  </body>
+</html>
