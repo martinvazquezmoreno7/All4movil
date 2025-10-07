@@ -27,3 +27,12 @@ Nuestro objetivo es simplificar la elección del operador ideal, ofreciendo tran
 1. Clona el repositorio:
    ```bash
    git clone https://github.com/martinvazquezmoreno7/All4movil.git
+   cd All4movil
+   ```
+
+2. Abre la landing corporativa en tu navegador (no se requiere build):
+   ```bash
+   open website/index.html # macOS
+   xdg-open website/index.html # Linux
+   start website\index.html   # Windows
+   ```

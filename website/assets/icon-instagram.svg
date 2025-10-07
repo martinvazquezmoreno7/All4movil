@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="Instagram">
+  <defs>
+    <linearGradient id="insta" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f58529" />
+      <stop offset="50%" stop-color="#dd2a7b" />
+      <stop offset="100%" stop-color="#8134af" />
+    </linearGradient>
+  </defs>
+  <rect width="24" height="24" rx="6" fill="url(#insta)" />
+  <path d="M12 8.2a3.8 3.8 0 100 7.6 3.8 3.8 0 000-7.6zm0 6.2a2.4 2.4 0 110-4.8 2.4 2.4 0 010 4.8zm4.5-6.3a.9.9 0 11-1.8 0 .9.9 0 011.8 0z" fill="#fff" />
+  <path d="M17 4H7a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3zm1.6 13a1.6 1.6 0 01-1.6 1.6H7A1.6 1.6 0 015.4 17V7A1.6 1.6 0 017 5.4h10A1.6 1.6 0 0118.6 7v10z" fill="#fff" />
+</svg>

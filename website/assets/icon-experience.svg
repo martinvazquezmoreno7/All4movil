@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Icono de experiencia">
+  <rect width="64" height="64" rx="16" fill="rgba(255,106,61,0.1)" />
+  <g fill="none" stroke="#ff6a3d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 24h24" />
+    <path d="M20 32h18" />
+    <path d="M20 40h12" />
+  </g>
+  <path d="M38 18l6-6 10 10-6 6z" fill="#05c4d6" opacity="0.8" />
+  <circle cx="24" cy="48" r="6" fill="#142c73" />
+</svg>
