@@ -27,3 +27,22 @@ Nuestro objetivo es simplificar la elección del operador ideal, ofreciendo tran
 1. Clona el repositorio:
    ```bash
    git clone https://github.com/martinvazquezmoreno7/All4movil.git
+
+## 🧪 ¿Cómo probar el comparador localmente?
+
+Dado que el prototipo actual es una página estática (`index.html`), no necesitas instalar dependencias ni levantar un servidor complejo. Sigue estos pasos:
+
+1. Clona el repositorio (si todavía no lo has hecho):
+   ```bash
+   git clone https://github.com/martinvazquezmoreno7/All4movil.git
+   ```
+2. Entra en la carpeta del proyecto:
+   ```bash
+   cd All4movil
+   ```
+3. Abre el archivo `index.html` en tu navegador preferido.
+   - Puedes hacer doble clic sobre el archivo desde tu explorador de archivos, o
+   - Si usas VS Code, ejecuta **Go Live** (Live Server) para recargar la página automáticamente con cada cambio.
+4. Interactúa con el formulario de filtros para ver cómo se actualizan las ofertas mostradas.
+
+> 💡 Consejo: si modificas el contenido de `index.html`, recarga el navegador para ver los cambios.
